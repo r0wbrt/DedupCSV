@@ -68,10 +68,8 @@ func main() {
 
 		id := record[column]
 
-		_, ok := recordMap[id]
-		if !ok {
-			recordMap[id] = record
-		}
+		//Use most recent record since source dataset has that structure
+		recordMap[id] = record
 	}
 
 	csvWriter := csv.NewWriter(os.Stdout)
